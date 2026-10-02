@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+Server/node_modules/
+Student-portal/Server/node_modules/
+
+# Environment secrets
+.env
+Server/.env
+Student-portal/Server/.env
+
+# Uploads
+Server/uploads/*
+!Server/uploads/.gitkeep
+!Server/uploads/avatar.png
+!Server/uploads/avatar.svg
+Student-portal/Server/uploads/*
+!Student-portal/Server/uploads/.gitkeep
+!Student-portal/Server/uploads/avatar.png
+!Student-portal/Server/uploads/avatar.svg
+
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+.vscode/

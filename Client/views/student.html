@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Directory</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="../public/images/logo.svg" type="image/x-icon">
+  <link href="../public/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <img src="../public/images/logo.svg" alt="Logo" width="40" class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <span class="badge bg-light text-primary me-2">Admin Portal</span>
+          </li>
+          <li class="nav-item">
+            <button id="logoutBtn" class="btn btn-outline-light btn-sm">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-5 pt-5 pb-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+      <div class="d-flex align-items-center gap-2">
+        <h2 class="mb-0">Student Directory</h2>
+        <span class="badge bg-primary rounded-pill fs-6" id="totalBadge">0 Students</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 flex-grow-1 flex-md-grow-0" style="max-width: 500px;">
+        <div class="input-group">
+          <input type="text" id="searchInput" class="form-control" placeholder="Search name or email...">
+          <button class="btn btn-outline-secondary" type="button" id="clearSearchBtn" title="Clear search">✕</button>
+        </div>
+        <select id="statusFilter" class="form-select" style="min-width: 140px;">
+          <option value="All">All Statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="Approved">Approved</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-responsive shadow-sm rounded border">
+      <table class="table table-striped table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th style="width: 60px;">#</th>
+            <th>Name & Email</th>
+            <th>Academics</th>
+            <th>Status</th>
+            <th>Admission Date</th>
+            <th style="width: 160px;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="studentsTable">
+          <!-- Dynamic content -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination & Summary Bar -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 gap-2" id="paginationWrapper">
+      <div class="text-muted small" id="paginationInfo">
+        Showing 0 to 0 of 0 students (20 per page)
+      </div>
+      <nav aria-label="Student Directory Pagination">
+        <ul class="pagination pagination-sm mb-0 justify-content-center" id="paginationControls">
+          <!-- Dynamic page buttons -->
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white mt-auto">
+    <div class="container py-3">
+      <div class="text-center">
+        &copy; 2025 Student Portal. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="../public/js/api.js"></script>
+  <script type="module" src="../public/js/students.js"></script>
+</body>
+</html>

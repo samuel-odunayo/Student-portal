@@ -1,0 +1,23 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Background circle -->
+  <circle cx="150" cy="150" r="140" fill="#4267B2" />
+  
+  <!-- Graduation cap -->
+  <path d="M150 80 L220 120 L150 160 L80 120 Z" fill="white"/>
+  <path d="M150 160 L150 200 L220 160 L220 120" fill="#E6E6E6"/>
+  <rect x="145" y="80" width="10" height="30" fill="white"/>
+  
+  <!-- Book pages -->
+  <path d="M110 170 C110 165, 190 165, 190 170 L190 220 C190 215, 110 215, 110 220 Z" fill="white"/>
+  <path d="M110 175 C110 170, 190 170, 190 175 L190 225 C190 220, 110 220, 110 225 Z" fill="#E6E6E6"/>
+  
+  <!-- Registration cursor -->
+  <path d="M160 190 L175 190 L168 205 Z" fill="#FFD700"/>
+  
+  <!-- Text circle -->
+  <path id="curve" d="M60,150 A90,90 0 1,1 240,150" fill="none" />
+  <text fill="white" font-size="24" font-family="Arial">
+    <textPath href="#curve" startOffset="25%">STUDENT PORTAL</textPath>
+  </text>
+</svg>

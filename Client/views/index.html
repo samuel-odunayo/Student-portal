@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal</title>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <link rel="icon" href="../public/images/logo.svg" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../public/css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <img src="../public/images/logo.svg" alt="Logo" width="40" class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item d-none" id="navDashboard">
+            <a class="nav-link" href="#" id="dashboardLink">Dashboard</a>
+          </li>
+          <li class="nav-item" id="navRegister">
+            <a class="nav-link" href="./form.html">Register</a>
+          </li>
+          <li class="nav-item" id="navLogin">
+            <a class="nav-link" href="./login.html">Login</a>
+          </li>
+          <li class="nav-item d-none ms-2" id="navLogout">
+            <button id="logoutBtn" class="btn btn-outline-light btn-sm">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-5 pt-5">
+    <section class="row align-items-center">
+      <div class="col-md-6">
+        <h1 class="display-4">Welcome to Student Portal</h1>
+        <p class="lead">Manage your academic journey with ease</p>
+        <a href="./form.html" class="btn btn-primary btn-lg" id="heroBtn">Get Started</a>
+      </div>
+      <div class="col-md-6">
+        <img src="../public/images/homepage.svg" alt="Students" class="img-fluid">
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white mt-auto">
+    <div class="container py-3">
+      <div class="text-center">
+        &copy; 2025 Student Portal. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('portal_token');
+      if (token) {
+        const role = localStorage.getItem('portal_role');
+        const studentId = localStorage.getItem('portal_student_id');
+        const dashboardUrl = role === 'admin' ? './student.html' : (studentId ? `./details.html?id=${studentId}` : './details.html');
+
+        const navLogin = document.getElementById('navLogin');
+        const navRegister = document.getElementById('navRegister');
+        const navDashboard = document.getElementById('navDashboard');
+        const dashboardLink = document.getElementById('dashboardLink');
+        const navLogout = document.getElementById('navLogout');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const heroBtn = document.getElementById('heroBtn');
+
+        // Disable/hide Login and Register; keep Dashboard and Logout
+        if (navLogin) navLogin.classList.add('d-none');
+        if (navRegister) navRegister.classList.add('d-none');
+        if (navDashboard) {
+          navDashboard.classList.remove('d-none');
+          if (dashboardLink) dashboardLink.href = dashboardUrl;
+        }
+        if (navLogout) navLogout.classList.remove('d-none');
+        if (heroBtn) {
+          heroBtn.href = dashboardUrl;
+          heroBtn.textContent = 'Go to Dashboard';
+        }
+
+        if (logoutBtn) {
+          logoutBtn.addEventListener('click', () => {
+            localStorage.clear();
+            window.location.reload();
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>
